@@ -13,12 +13,23 @@ const useWordle = (solution : string | null) => {
     }
 
     const addNewGuess = () => {
-
+        
     }
 
     const keyHandler = ({key} : any) => {
+
+        if (key === 'Backspace') {
+            setCurrentGuess((prev)=> {
+                return prev.slice(0, -1)
+            })
+            return 
+        }
         if (/^[A-Za-z]$/.test(key)){
-            console.log(key)
+            if ( currentGuess.length < 5) {
+                setCurrentGuess((prev) => {
+                    return prev + key
+                })
+             }
         }
     }
 

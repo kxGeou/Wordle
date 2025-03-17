@@ -20,7 +20,7 @@ function Wordle({solution} : TWordle) {
 
   return (
     <main>
-        
+        {currentGuess}
     </main>
   )
 }
