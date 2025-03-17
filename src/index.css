@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+@theme {
+    --color-background: #121729;
+    --color-box:  ;
+    --color-box-bad: ; 
+    --color-box-correct: ;
+    --color-box-medium: ;
+}
