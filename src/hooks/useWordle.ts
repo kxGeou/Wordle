@@ -11,7 +11,7 @@ const useWordle = (solution : any) => {
     const formatGuess = () => {
         let solutionArray = [...solution]
         let formattedGuess = [...currentGuess].map((letter) => {
-                return {key: letter , color: "grey"}
+                return {key: letter , color: "gray"}
         })
 
         formattedGuess.forEach((letter, index ) => {

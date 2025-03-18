@@ -1,12 +1,12 @@
-
-function Row({ guess }: { guess?: any }) {
+import '../index.css';
+function Row({ guess }: { guess?: any } , {currentGuess} :any) {
   return (
     <div className="flex justify-center text-center">
       {Array.isArray(guess) ? (
         guess.map((g, index) => (
           <div
             key={index}
-            className="flex justify-center items-center w-[4rem] h-[4rem] border border-gray-700 m-1 text-center uppercase font-bold text-4xl"
+            className={`flex justify-center  items-center w-[4rem] h-[4rem]  m-1 text-center uppercase font-bold text-3xl ${g.color}`}
           >
             {g.key}
           </div>

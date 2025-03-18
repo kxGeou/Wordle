@@ -9,7 +9,10 @@ function Grid({currentGuess, guesses, turn} : TGrid) {
   return (
     <div>
       {guesses.map((guess, index)  => {
-        return <Row key={index} guess={guess}></Row>
+        if(turn === index) {
+          return <Row key={index} currentGuess={currentGuess}></Row>
+        }
+        return <Row key={index} guess={guess} ></Row>
       })}
     </div>
   )

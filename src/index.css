@@ -6,8 +6,17 @@
 
 @theme {
     --color-background: #121729;
-    --color-box:  ;
-    --color-box-bad: ; 
-    --color-box-correct: ;
-    --color-box-medium: ;
+    --color-green: #41a35b; 
+    --color-gray: #495875;
+    --color-yellow: #929934;
+}
+
+.gray {
+    background-color: var(--color-gray);
+}
+.green {
+    background-color: var(--color-green);
+}
+.yellow {
+    background-color: var(--color-yellow);
 }
