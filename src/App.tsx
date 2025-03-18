@@ -16,7 +16,7 @@ import Wordle from "./components/Wordle";
     }, [setSolution])
 
   return (
-    <div className="min-h-screen bg-background text-white">
+    <div className="flex justify-center items-center min-h-screen bg-background text-white">
         {
             solution && <Wordle solution={solution}></Wordle>
         }
