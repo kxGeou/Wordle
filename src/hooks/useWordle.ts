@@ -3,7 +3,7 @@ import { useState } from "react"
 const useWordle = (solution : any) => {
     const [turn, setTurn] = useState<number>(0);
     const [currentGuess, setCurrentGuess] = useState<string>("");
-    const [guesses, setGuesses] = useState([]);
+    const [guesses, setGuesses] = useState([...Array(6)]);
     const [history, setHistory] = useState<string[]>([]);
     const [isCorrect, setIsCorrect] = useState<boolean>(false)
 
@@ -31,8 +31,26 @@ const useWordle = (solution : any) => {
         return formattedGuess
     }
 
-    const addNewGuess = () => {
-        
+    const addNewGuess = (formattedGuess : any) => {
+        if (currentGuess === solution) {
+            setIsCorrect(true)
+        }
+
+        setGuesses((prevGuesses) => {
+            let newGuesses = [...prevGuesses]
+            newGuesses[turn] = formattedGuess 
+            return newGuesses
+        })  
+
+        setHistory((prevHistory) => {
+            return [...prevHistory, currentGuess]
+        })
+
+        setTurn((prevTurn) => {
+            return prevTurn + 1
+        })
+
+        setCurrentGuess('')
     }
 
     const keyHandler = ({key} : any) => {
@@ -40,7 +58,7 @@ const useWordle = (solution : any) => {
         if( key === 'Enter') {
             if (turn > 5 ) { 
                 console.log("You Lost")
-                return
+                return 
             }
 
             if(history.includes(currentGuess)) {
@@ -53,7 +71,7 @@ const useWordle = (solution : any) => {
                 return
             }
             const formatted = formatGuess()
-            console.log(formatted)
+            addNewGuess(formatted)
         }
 
         if (key === 'Backspace') {
