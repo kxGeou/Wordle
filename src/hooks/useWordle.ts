@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const useWordle = (solution : string | null) => {
+const useWordle = (solution : any) => {
     const [turn, setTurn] = useState<number>(0);
     const [currentGuess, setCurrentGuess] = useState<string>("");
     const [guesses, setGuesses] = useState([]);
@@ -9,7 +9,26 @@ const useWordle = (solution : string | null) => {
 
 
     const formatGuess = () => {
-        console.log(currentGuess)
+        let solutionArray = [...solution]
+        let formattedGuess = [...currentGuess].map((letter) => {
+                return {key: letter , color: "grey"}
+        })
+
+        formattedGuess.forEach((letter, index ) => {
+            if(solutionArray[index] === letter.key) {
+                formattedGuess[index].color = 'green'
+                solutionArray[index] = null
+            }
+        })
+        formattedGuess.forEach((letter, index ) => {
+            if(solutionArray.includes(letter.key) && letter.color !== 'green') {
+                formattedGuess[index].color = 'yellow'
+                solutionArray[solutionArray.indexOf(letter.key)] = null  
+            }
+        })
+
+
+        return formattedGuess
     }
 
     const addNewGuess = () => {
@@ -33,7 +52,8 @@ const useWordle = (solution : string | null) => {
                 console.log("Word is too short")
                 return
             }
-            formatGuess()
+            const formatted = formatGuess()
+            console.log(formatted)
         }
 
         if (key === 'Backspace') {
