@@ -38,8 +38,8 @@ function Wordle({solution} : TWordle) {
 
 
   return (
-    <main className="relative">
-        {solution}
+    <main className="relative flex flex-col justify-center items-center">
+        <h1 className="mb-6 absolute top-[-5%] uppercase font-bold opacity-35 tracking-widest ">Wordle </h1>
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn}></Grid>
         <Keypad usedKeys={usedKeys}></Keypad>
         {show && <Modal isCorrect={isCorrect} turn={turn} solution={solution}></Modal>}

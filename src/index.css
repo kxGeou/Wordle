@@ -54,10 +54,11 @@
     height: 100%;
     top: 0;
     left: 0;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(7px);
 }
 .modalBox {
     display: flex; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -66,16 +67,33 @@
     left:50%; 
     transform: translate(-50%, -50%);
     background-color: var(--color-modal);
-    height: 30%;
-    width: 25rem;
+    height: 35%;
+    width: 30rem;
     border-radius: 16px;
     padding: 0.5rem;
+    animation: fade 0.5s ease-in;
 }
 
-
+.modalBox h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+}
 
 /* ANIMACJE  */
 
+@keyframes fade {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
 
 @keyframes flip {
     0% {
