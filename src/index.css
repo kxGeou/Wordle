@@ -9,14 +9,79 @@
     --color-green: #41a35b; 
     --color-gray: #495875;
     --color-yellow: #929934;
+    --color-typing: #39377a;
 }
 
 .gray {
-    background-color: var(--color-gray);
+    --background-color: var(--color-gray);
+    animation: flip  0.5s ease forwards;
 }
 .green {
-    background-color: var(--color-green);
+    --background-color: var(--color-green);
+    animation: flip 0.5s ease forwards;
 }
 .yellow {
-    background-color: var(--color-yellow);
+    --background-color: var(--color-yellow);
+    animation: flip  0.5s ease forwards;
+
+}
+
+.row > div:nth-child(2) {
+    animation-delay: 0.2s;   
+}
+.row > div:nth-child(3) {
+    animation-delay: 0.4s;   
+
+}
+.row > div:nth-child(4) {
+    animation-delay: 0.6s;   
+
+}
+.row > div:nth-child(5) {
+    animation-delay: 0.8s;   
+
+}
+
+.row.current > div.filled { 
+    animation: typing 0.3s ease-in-out forwards;
+}
+
+/* ANIMACJE  */
+
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0);
+        background: var(--color-background);
+
+    }
+    45% {
+        transform: rotateX(90deg);
+        background: var(--color-background);
+
+    }
+
+    55% {
+        transform: rotateX(90deg);
+        background: var(--background-color);
+    }
+    100% {
+        transform: rotateX(0);
+        background: var(--background-color);
+    }
+}
+
+
+@keyframes typing {
+    0% {
+        transform: scale(1);
+        border-color: white;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        border-color: var(--color-typing);
+    }
 }

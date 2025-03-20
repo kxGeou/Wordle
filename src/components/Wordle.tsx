@@ -22,7 +22,6 @@ function Wordle({solution} : TWordle) {
 
   return (
     <main>
-        {currentGuess}
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn}></Grid>
     </main>
   )
