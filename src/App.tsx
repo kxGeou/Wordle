@@ -10,7 +10,6 @@ import Wordle from "./components/Wordle";
         .then(res => res.json())
         .then(data => {
             const randomSolution = data.solutions[Math.floor(Math.random() * data.solutions.length)];
-            console.log(randomSolution)
             setSolution(randomSolution.word)
         })
     }, [setSolution])
