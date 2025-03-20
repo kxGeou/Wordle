@@ -17,7 +17,7 @@ function Keypad({usedKeys} : any) {
         {letters && letters.map((l, index) => {
             const color = usedKeys[l.key]
            return ( 
-           <div key={l.key} className={`flex justify-center items-center m-[5px] cursor-pointer w-10 h-12 bg-typing rounded leading-10 ${color}`}>
+           <div key={l.index} className={`flex justify-center items-center m-[5px] cursor-pointer w-10 h-12 bg-typing rounded leading-10 ${color}`}>
                 {l.key}
            </div>
         )
