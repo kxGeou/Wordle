@@ -8,7 +8,7 @@ type TWordle = {
 }
 
 function Wordle({solution} : TWordle) {
-    const { currentGuess, keyHandler, guesses, isCorrect, turn} = useWordle(solution);
+    const { currentGuess, keyHandler, guesses, isCorrect, turn, usedKeys} = useWordle(solution);
 
     useEffect(() => {
         window.addEventListener('keyup', keyHandler)
@@ -24,7 +24,7 @@ function Wordle({solution} : TWordle) {
   return (
     <main>
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn}></Grid>
-        <Keypad></Keypad>
+        <Keypad usedKeys={usedKeys}></Keypad>
     </main>
   )
 }
