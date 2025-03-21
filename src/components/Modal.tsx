@@ -14,7 +14,7 @@ function Modal({isCorrect, turn, solution} : Tmodal) {
     <div className="modalBox">
         {isCorrect && (
           <div>
-            <h2>You win !</h2>
+            <h2>You won !</h2>
             <p className="opacity-75 mb-6">Odpowiedź to: <span className="uppercase font-bold text-emerald-400 ">{solution}</span></p>
             <p className="opacity-75 mb-12">You found the solution in <span className="uppercase font-bold text-xl text-emerald-400 ">{turn}</span> guesses</p>
             <a href="/" className="bg-green/50 px-6 py-2 rounded transition-all duration-300 hover:bg-green">Zagraj ponownie</a>
