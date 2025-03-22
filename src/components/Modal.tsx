@@ -5,9 +5,6 @@ type Tmodal = {
 }
 function Modal({isCorrect, turn, solution} : Tmodal) {
 
-  if (!isCorrect) {
-    console.log(":_")
-  }
   return (
     <div className="modal">
 
